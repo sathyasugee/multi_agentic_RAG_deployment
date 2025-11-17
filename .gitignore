@@ -14,8 +14,6 @@ venv/
 .vscode/
 .idea/
 
-# --- OS Files ---
-.DS_Store
 
 # --- Logs ---
 *.log
