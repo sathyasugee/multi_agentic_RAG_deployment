@@ -8,32 +8,30 @@ data:
 
 # Text Chunking Strategy
 chunking:
-  chunk_size: 512           # Tokens per chunk
-  chunk_overlap: 50         # Overlap for context continuity
-  min_chunk_size: 100       # Skip very small chunks
+  chunk_size: 512           
+  chunk_overlap: 50         
+  min_chunk_size: 100       
 
 # Embedding Configuration
 embedding:
-  model_name: "all-MiniLM-L6-v2"  # HuggingFace model ID
-  dimension: 384            # Model output dimension
-  batch_size: 32            # For encoding
-  normalize: true           # Normalize embeddings
+  model_name: "all-MiniLM-L6-v2" 
+  dimension: 384            
+  batch_size: 32           
+  normalize: true           
 
 # Vector Database (FAISS)
 vectordb:
-  index_type: "IndexFlatL2"  # Options: IndexFlatL2, IndexIVFFlat
-  similarity_metric: "cosine" # cosine or euclidean
-
+  index_type: "IndexFlatL2"  
+  similarity_metric: "cosine" 
 # Retrieval Settings
 retrieval:
-  top_k: 5                  # Number of chunks to retrieve
-  score_threshold: 0.7      # Minimum similarity score
-  rerank: false             # Enable reranking (future)
-
+  top_k: 5                  
+  score_threshold: 0.7     
+  rerank: false            
 # LLM Configuration (Groq)
 llm:
   provider: "groq"
-  model: "llama-3.1-8b-instant"  # Fast model for demos
+  model: "llama-3.1-8b-instant"  
   # Alternative: "llama-3.1-70b-versatile" for better quality
   temperature: 0.3
   max_tokens: 1024
@@ -42,7 +40,7 @@ llm:
 # Multi-Agent System
 agents:
   enable_web_search: true
-  web_search_engine: "duckduckgo"  # Free, no API key needed
+  web_search_engine: "duckduckgo" 
   max_search_results: 3
 
   # Routing Logic
@@ -67,10 +65,10 @@ streamlit:
 
 # Logging
 logging:
-  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  level: "INFO"  
   format: "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>"
 
 # Performance
 performance:
   cache_embeddings: true
-  max_workers: 4            # For parallel processing
+  max_workers: 4           
