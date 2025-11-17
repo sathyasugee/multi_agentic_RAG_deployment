@@ -20,5 +20,5 @@ venv/
 # --- Logs ---
 *.log
 
-# --- Data Files ---
-data/
+
+
