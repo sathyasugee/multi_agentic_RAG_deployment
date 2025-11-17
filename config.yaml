@@ -1,0 +1,76 @@
+# Multi-Agent RAG System Configuration
+
+# Data Processing
+data:
+  raw_path: "./data/raw/multi_agent_rag_file.csv"
+  processed_path: "./data/processed/"
+  vector_store_path: "./data/vector_store"
+
+# Text Chunking Strategy
+chunking:
+  chunk_size: 512           # Tokens per chunk
+  chunk_overlap: 50         # Overlap for context continuity
+  min_chunk_size: 100       # Skip very small chunks
+
+# Embedding Configuration
+embedding:
+  model_name: "all-MiniLM-L6-v2"  # HuggingFace model ID
+  dimension: 384            # Model output dimension
+  batch_size: 32            # For encoding
+  normalize: true           # Normalize embeddings
+
+# Vector Database (FAISS)
+vectordb:
+  index_type: "IndexFlatL2"  # Options: IndexFlatL2, IndexIVFFlat
+  similarity_metric: "cosine" # cosine or euclidean
+
+# Retrieval Settings
+retrieval:
+  top_k: 5                  # Number of chunks to retrieve
+  score_threshold: 0.7      # Minimum similarity score
+  rerank: false             # Enable reranking (future)
+
+# LLM Configuration (Groq)
+llm:
+  provider: "groq"
+  model: "llama-3.1-8b-instant"  # Fast model for demos
+  # Alternative: "llama-3.1-70b-versatile" for better quality
+  temperature: 0.3
+  max_tokens: 1024
+  top_p: 0.9
+
+# Multi-Agent System
+agents:
+  enable_web_search: true
+  web_search_engine: "duckduckgo"  # Free, no API key needed
+  max_search_results: 3
+
+  # Routing Logic
+  routing:
+    rag_keywords: ["code", "regulation", "section", "rule", "requirement"]
+    web_keywords: ["recent", "update", "news", "current", "latest"]
+    confidence_threshold: 0.6
+
+# API Settings
+api:
+  title: "Multi-Agent RAG API"
+  version: "1.0.0"
+  host: "0.0.0.0"
+  port: 8000
+  reload: true
+
+# Streamlit UI
+streamlit:
+  page_title: "NJ Admin Code Multi-Agent RAG"
+  page_icon: "🤖"
+  layout: "wide"
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan> - <level>{message}</level>"
+
+# Performance
+performance:
+  cache_embeddings: true
+  max_workers: 4            # For parallel processing

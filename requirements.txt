@@ -1,0 +1,39 @@
+# Core Dependencies
+python-dotenv
+pyyaml
+
+# Data Processing
+pandas
+numpy
+
+# LangChain Core
+langchain
+langchain-community
+langchain-core
+langchain-text-splitters
+
+# LangChain Integrations
+langchain-groq
+langchain-openai
+
+# Embeddings & Vector Store
+sentence-transformers
+langchain-huggingface
+faiss-cpu
+
+# Web Search (Multi-Agent)
+duckduckgo-search
+
+# API & UI
+fastapi
+uvicorn[standard]
+streamlit
+pydantic
+pydantic-settings
+
+# Utilities
+tiktoken
+requests
+
+# Monitoring
+loguru
